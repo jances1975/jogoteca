@@ -1,0 +1,36 @@
+{% extends 'template.html' %}
+{% block conteudo %}
+
+      <form class="formularioJogo" action="{{ url_for('criar') }}" method="post" enctype="multipart/form-data">
+
+        <figure class="img-thubmmail col-md-4 formularioImagem">
+          <img class="img-fluid" src="{{ url_for('imagem', nome_arquivo='capa-padrao1.jpg') }}">
+          <figcaption>
+            <label class="fileContainer">
+              Mudar a capa
+              <input type="file" name="arquivo" accept=".jpg, *.jpeg">
+            </label>
+          </figcaption>
+        </figure>
+
+        <fieldset>
+          {{ form.csrf_token }}
+          <div class="form-group inputBox">
+            {{ form.nome.label(class="form-label") }}
+            {{ form.nome(class="form-control") }}
+          </div>
+          <div class="form-group inputBox">
+            {{ form.categoria.label(class="form-label") }}
+            {{ form.categoria(class="form-control") }}
+          </div>
+          <div class="form-group inputBox">
+            {{ form.console.label(class="form-label") }}
+            {{ form.console(class="form-control") }}
+          </div>
+          <div class="form-group buttons">
+            {{ form.salvar(class="btn btn-primary") }}
+          </div>
+        </fieldset>
+      </form>
+
+{% endblock %}

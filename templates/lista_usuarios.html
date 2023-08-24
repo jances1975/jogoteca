@@ -1,0 +1,25 @@
+{% extends 'template.html' %}
+{% block conteudo %}
+        <table class="table table-striped table-responsive table-bordered">
+            <thead class="thead-default">
+                <tr>
+                    <th>NOME</th>
+                    <th>USUÁRIO</th>
+                    <th>ADMIN</th>
+                    <th>SENHA</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for usuario in usuarios %}
+                    <tr>
+                        <td>{{ usuario.nome }}</td>
+                        <td>{{ usuario.nickname.upper() }}</td>
+                        <td>{{ usuario.superuser.upper() }}</td>
+                        <td>{{ usuario.senha.upper() }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+{% endblock %}
